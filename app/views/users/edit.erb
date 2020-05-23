@@ -1,0 +1,25 @@
+<form method="POST" action="/user/<%= @user.id %>">
+    <input type="hidden" name="_method" value="PATCH">
+    <p>
+        <h4>Edit <%= @user.username %>
+    </p>
+
+    <p>
+        <label for="username">Edit Username</label>
+        <input type="text" id="username" name="username" value="<%= @user.username %>">
+    </p>
+
+    <p>
+        <label for="new_password">Enter your new password</label>
+        <input type="password" id="new_password">
+    </p>
+
+    <p>
+        <label for="old_password">Please confirm your old password</label>
+        <input type="password" id="old_password" name="old_password">
+    </p>
+
+    <p>
+        <input type="submit" value="Edit User">
+    </p>
+</form>
