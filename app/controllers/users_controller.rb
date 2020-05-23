@@ -1,18 +1,5 @@
 class UsersController < ApplicationController
     
-    get "/login" do
-        erb :login
-    end
-
-    post "/login" do
-        @user = User.find_by(username: params[:username])
-        if @user && @user.authenticate(params)
-            session[:user_id] = @user.id
-            redirect "/account"
-        end
-        erb :error
-    end
-    
     get "/user/new" do
         erb :'users/new'
     end
@@ -22,20 +9,16 @@ class UsersController < ApplicationController
             redirect "/users/new"
         else
             user = User.create(username: params[:username], password: params[:password])
-            redirect "/account"    
+            binding.pry 
+            redirect "/login"  
         end
     end
 
-    get "/account" do
-        @user = User.find_by_id(session[:user_id])
-        if @user
+    get "/user/:id" do 
+        if @user = User.find_by_id(session[:user_id])
             erb :'users/show'
         else
             redirect '/login'
         end
     end
-
-    
-
-    
 end
