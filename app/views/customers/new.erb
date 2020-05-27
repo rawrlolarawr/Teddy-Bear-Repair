@@ -1,0 +1,44 @@
+<form method="POST" action="/customer/new">
+    <p>
+        <h4>Enter new Customer</h4>
+    </p>
+
+    <p>
+        <label for="customer_name">Customer Name</label>
+        <input type="text" id="customer_name" name="customer[name]" required>
+    </p>
+
+    <p>
+        <label for="customer_phone">Customer Phone Number</label>
+        <input type="tel" id="customer_phone" name="customer[phone]" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+        <small>Format: 123-456-7890</small>
+    </p>
+
+    <p>
+        <h4>Add Device</h4>
+    </p>
+
+    <p>
+        <label for="device_make">Make</label>
+        <input type="text" id="device_make" name="device[make]">
+    </p>
+
+    <p>
+        <label for="device_model">Model</label>
+        <input type="text" id="device_model" name="device[model]">
+    </p>
+
+    <p>
+        <label for="device_issue">Issue<label>
+        <input type="text" id="device_issue" name="device[issue]">
+    </p>
+
+    <p>
+        <label for="device_date_received">Date Received</label>
+        <input type="date" id="device_date_received" name="device[date_received]">
+    </p>
+
+    <p>
+        <input type="submit" value="Create Customer">
+    </p>
+</form>
