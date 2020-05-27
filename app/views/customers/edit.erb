@@ -1,16 +1,16 @@
-<form method="POST" action="/customer/new">
+<form method="POST" action="/customer/<%= @customer.id %>/edit">
     <p>
-        <h4>Enter new Customer</h4>
+        <h4>Edit Customer</h4>
     </p>
 
     <p>
         <label for="customer_name">Customer Name</label>
-        <input type="text" id="customer_name" name="customer[name]" required>
+        <input type="text" id="customer_name" name="customer[name]" value="<%= @customer.name %>">
     </p>
 
     <p>
         <label for="customer_phone">Customer Phone Number</label>
-        <input type="tel" id="customer_phone" name="customer[phone_number]" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+        <input type="tel" id="customer_phone" name="customer[phone]" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value="<%= @customer.phone_number %>">
         <small>Format: 123-456-7890</small>
     </p>
 
@@ -35,10 +35,10 @@
 
     <p>
         <label for="device_date_received">Date Received</label>
-        <input type="date" id="device_date_received" name="device[received]">
+        <input type="date" id="device_date_received" name="device[date_received]">
     </p>
 
     <p>
-        <input type="submit" value="Create Customer">
+        <input type="submit" value="Edit Customer">
     </p>
 </form>

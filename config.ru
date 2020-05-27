@@ -7,4 +7,5 @@ end
 use Rack::MethodOverride
 use LoginController
 use UsersController
+use CustomerController
 run ApplicationController

@@ -1,4 +1,10 @@
 <h1><%= @user.username %></h1>
 
+<ul>
+    <% @user.customers.each do |c| %>
+        <li><a href="/customer/<%= c.id %>"><%= c.name %></a>
+    <% end %>
+</ul>
+
 <span><a href="/user/<%= @user.id %>/edit">Edit</a></span>
 <span><a href="/logout">Logout</a></span>
