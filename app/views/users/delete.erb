@@ -1,0 +1,10 @@
+<form method="POST" action="/user/<%= @user.id %>/delete">
+    <input type="hidden" name="_method" value="delete">
+    <p>
+        <label for="password">Enter your password</label>
+        <input type="password" id="password" name="password">
+    </p>
+    <p>
+        <input type="submit" value="Delete User">
+    </p>
+</form>
