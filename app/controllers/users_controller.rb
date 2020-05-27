@@ -1,16 +1,16 @@
-require 'pry'
 class UsersController < ApplicationController
     
     get "/user/new" do
         erb :'users/new'
     end
     
-    post "/register" do
+    post "/user/new" do
         if params[:username] == "" || params[:password] == ""
             redirect "/users/new"
         else
             user = User.create(username: params[:username], password: params[:password])
-            redirect "/login"  
+            session[:user_id] = User.find_by_id(user.id)
+            redirect "/user/#{user.id}"
         end
     end
 
@@ -29,13 +29,25 @@ class UsersController < ApplicationController
 
     patch "/user/:id" do
         @user = User.find_by_id(session[:user_id])
-        if params[:username] != ""
+        if params[:username] != "" || params[:username] != User.find_by_id(session[:user_id].username)
             @user.update(username: params[:username])
         end
-        if params[:new_password] != "" && @user.authenticate(password: params[:old_password])
-            @user.update(password: params[:old_password])
+        if params[:new_password] != "" && @user.authenticate(params[:old_password])
+            @user.update(password: params[:new_password])
         end
-        
         redirect "/user/#{@user.id}"
+    end
+
+    get "/user/:id/delete" do
+        @user = User.find_by_id(session[:user_id])
+        erb :'users/delete'
+    end
+
+    delete "/user/:id/delete" do
+        @user = User.find_by_id(session[:user_id])
+        if @user.authenticate(params[:password])
+            @user.delete
+        end
+        redirect "/login"
     end
 end

@@ -1,4 +1,4 @@
-class CreateCustomers < ActiveRecord::Migration
+class CreateCustomers < ActiveRecord::Migration[6.0]
   def change
     create_table :customers do |c|
       c.string :name
