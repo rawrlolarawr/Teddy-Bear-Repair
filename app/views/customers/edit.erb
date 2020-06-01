@@ -1,5 +1,8 @@
 <form method="POST" action="/customer/<%= @customer.id %>/edit">
     <p>
+        <input type="hidden" name="_method" value="PATCH">
+    </p>
+    <p>
         <h4>Edit Customer</h4>
     </p>
 
@@ -10,7 +13,7 @@
 
     <p>
         <label for="customer_phone">Customer Phone Number</label>
-        <input type="tel" id="customer_phone" name="customer[phone]" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value="<%= @customer.phone_number %>">
+        <input type="tel" id="customer_phone" name="customer[phone_number]" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value="<%= @customer.phone_number %>">
         <small>Format: 123-456-7890</small>
     </p>
 

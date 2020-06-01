@@ -9,4 +9,7 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "secret"
   end
   
+  get '/' do
+    redirect "/login"
+  end
 end

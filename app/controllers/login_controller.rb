@@ -13,7 +13,7 @@ class LoginController< ApplicationController
     end
 
     get "/logout" do
-        session[:user_id] = nil
+        session.clear
         redirect "/login"
     end
 end

@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
     patch "/user/:id" do
         @user = User.find_by_id(session[:user_id])
-        if params[:username] != "" || params[:username] != User.find_by_id(session[:user_id].username)
+        if params[:username] != "" || params[:username] != @user.username
             @user.update(username: params[:username])
         end
         if params[:new_password] != "" && @user.authenticate(params[:old_password])
