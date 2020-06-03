@@ -1,6 +1,15 @@
-<h4><%= @device.name %></h4>
+<h4><%= @device.make %> <%= @device.model %></h4>
 
 <ul>
+    <li>
+        Issue: <%= @device.issue %>
+    </li>
+
+    <li>
+        Date Received: <%= @device.received %>
+    </li>
+
+    <h5>Parts</h5>
     <% @device.parts.each do |p| %>
         <li><a href="parts/<%= p.id %>"><%= p.name %></a>
     <% end %>

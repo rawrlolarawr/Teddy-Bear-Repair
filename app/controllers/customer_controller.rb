@@ -11,7 +11,7 @@ class CustomerController < ApplicationController
             customer.devices.build(params[:device])
         end
         customer.save
-        redirect "/user/#{session[:user_id]}"
+        redirect "/user/dashboard"
     end
 
     get "/customer/:id" do
@@ -50,7 +50,7 @@ class CustomerController < ApplicationController
         if @user.authenticate(params[:password]) && @user.customers.include?(@customer)
             @customer.delete
         end
-        redirect "/user/#{@user.id}"
+        redirect "/user/dashboard"
     end
 end
 

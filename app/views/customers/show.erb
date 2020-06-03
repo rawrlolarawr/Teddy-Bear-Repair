@@ -2,6 +2,6 @@
 
 <ul>
     <% @customer.devices.each do |d| %>
-        <li><a href="device/<%= d.id %>"><%= d.make %> <%= d.model %></a>
+        <li><a href="/device/<%= d.id %>"><%= d.make %> <%= d.model %></a>
     <% end %>
 </ul>
