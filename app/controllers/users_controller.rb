@@ -14,7 +14,7 @@ class UsersController < ApplicationController
         end
     end
 
-    get "/user/:id" do 
+    get "/user/dashboard" do 
         if @user = User.find_by_id(session[:user_id])
             erb :'users/show'
         else
@@ -22,12 +22,12 @@ class UsersController < ApplicationController
         end
     end
 
-    get "/user/:id/edit" do
+    get "/user/dashboard/edit" do
         @user = User.find_by_id(session[:user_id])
         erb :'users/edit'
     end
 
-    patch "/user/:id" do
+    patch "/user/dashboard" do
         @user = User.find_by_id(session[:user_id])
         if params[:username] != "" || params[:username] != @user.username
             @user.update(username: params[:username])
@@ -38,12 +38,12 @@ class UsersController < ApplicationController
         redirect "/user/#{@user.id}"
     end
 
-    get "/user/:id/delete" do
+    get "/user/dashboard/delete" do
         @user = User.find_by_id(session[:user_id])
         erb :'users/delete'
     end
 
-    delete "/user/:id/delete" do
+    delete "/user/dashboard/delete" do
         @user = User.find_by_id(session[:user_id])
         if @user.authenticate(params[:password])
             @user.delete
