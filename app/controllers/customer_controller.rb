@@ -38,4 +38,19 @@ class CustomerController < ApplicationController
         end
         redirect "/customer/#{@customer.id}"
     end
+
+    get "/customer/:id/delete" do
+        @customer = Customer.find_by_id(params[:id])
+        erb :'customers/delete'
+    end
+    
+    delete "/customer/:id/delete" do
+        @customer = Customer.find_by_id(params[:id])
+        @user = User.find_by_id(session[:user_id])
+        if @user.authenticate(params[:password]) && @user.customers.include?(@customer)
+            @customer.delete
+        end
+        redirect "/user/#{@user.id}"
+    end
 end
+
