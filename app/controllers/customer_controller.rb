@@ -32,6 +32,10 @@ class CustomerController < ApplicationController
         if !params[:customer][:phone_number].empty? || @customer.phone_number
             @customer.update(phone_number: params[:customer][:phone_number])
         end
+        if !params[:device][:make].empty? && !params[:device][:model].empty? && !params[:device][:issue].empty? && !params[:device][:received].empty?
+            device = @customer.devices.build(params[:device])
+            device.save
+        end
         redirect "/customer/#{@customer.id}"
     end
 end
