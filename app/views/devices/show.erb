@@ -1,0 +1,7 @@
+<h4><%= @device.name %></h4>
+
+<ul>
+    <% @device.parts.each do |p| %>
+        <li><a href="parts/<%= p.id %>"><%= p.name %></a>
+    <% end %>
+</ul>
