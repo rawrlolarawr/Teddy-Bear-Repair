@@ -1,0 +1,48 @@
+<form method="POST" action="/devices/<%= @device.id %>/edit">
+    <p>
+        <input type="hidden" name="_method" value="PATCH">
+    </p>
+
+    <p>
+        <h4>Edit Device</h4>
+    </p>
+
+    <p>
+        <label for="device_make">Make</label>
+        <input type="text" id="device_make" name="device[make]" value="<%= @device.make %>">
+    </p>
+
+    <p>
+        <label for="device_model">Model</label>
+        <input type="text" id="device_model" name="device[model]" value="<%= @device.model %>">
+    </p>
+
+    <p>
+        <label for="device_issue">Issue</label>
+        <input type="text" id="device_issue" name="device[issue]" value="<%= @device.issue %>">
+    </p>
+
+    <p>
+        <label for="device_hours">Hours of Labor</label>
+        <input type="number" step="any" min="0" id="device_hours" name="device[hours_of_labor]" value="<%= @device.hours_of_labor %>">
+    </p>
+
+    <p>
+        <label for="device_received">Date Received</label>
+        <input type="date" id="device_received" name="device[received]" value="<%= @device.received %>">
+    </p>
+
+    <p>
+        <label for="device_completed">Date Completed</label>
+        <input type="date" id="device_compeleted" name="device[completed]" value="<%= @device.completed %>">
+    </p>
+
+    <p>
+        <label for="price">Total Price</label>
+        <input type="number" step="0.01" min="0" id="price" name="device[total_price]" value="<%= @device.total_price %>">
+    </p>
+
+    <p>
+        <input type="submit" value="Edit Device">
+    </p>
+</form>
