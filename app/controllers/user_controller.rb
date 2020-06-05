@@ -9,7 +9,7 @@ class UserController < ApplicationController
             redirect "/users/new"
         else
             user = User.create(username: params[:username], password: params[:password])
-            session[:user_id] = User.find_by_id(user.id)
+            session[:user_id] = user.id
             redirect "/user/#{user.id}"
         end
     end

@@ -1,4 +1,4 @@
-<h4><%= @device.make %> <%= @device.model %></h4>
+<h4><%= @device.customer.name %>'s <%= @device.make %> <%= @device.model %></h4>
 
 <ul>
     <li>
@@ -8,9 +8,29 @@
     <li>
         Date Received: <%= @device.received %>
     </li>
+    
+    <% if @device.hours_of_labor != nil %>
+        <li>
+            Hours of Labor: <%= @device.hours_of_labor %>
+        </li>
+    <% end %>
 
-    <h5>Parts</h5>
-    <% @device.parts.each do |p| %>
-        <li><a href="parts/<%= p.id %>"><%= p.name %></a>
+    <% if @device.completed != nil %>
+        <li>
+            Date Completed: <%= @device.completed %>
+        </li>
+    <% end %>
+
+    <% if @device.total_price != nil %>
+        <li>
+            Total Price: <%= @device.total_price %>
+        </li>
+    <% end %>
+   
+    <% if !@device.parts.empty? %>
+        <h5>Parts</h5>
+        <% @device.parts.each do |p| %>
+            <li><a href="parts/<%= p.id %>"><%= p.name %></a>
+        <% end %>
     <% end %>
 </ul>

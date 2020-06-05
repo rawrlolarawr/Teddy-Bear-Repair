@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 2020_05_21_220742) do
     t.string "model"
     t.string "issue"
     t.integer "hours_of_labor"
-    t.datetime "completed"
-    t.datetime "received"
+    t.string "completed"
+    t.string "received"
     t.decimal "total_price"
     t.integer "customer_id"
   end

@@ -9,8 +9,9 @@ class DeviceController < ApplicationController
         erb :'devices/edit'
     end
 
-    patch "device/:id/edit" do
+    patch "/device/:id/edit" do
         @device = Device.find_by_id(params[:id])
-        @device.update(params)
+        @device.update(params[:device])
+        redirect "/device/#{@device.id}"
     end
 end

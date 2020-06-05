@@ -5,8 +5,8 @@ class CreateDevices < ActiveRecord::Migration[6.0]
       d.string :model
       d.string :issue
       d.integer :hours_of_labor
-      d.datetime :completed
-      d.datetime :received
+      d.string :completed
+      d.string :received
       d.decimal :total_price
       d.integer :customer_id
     end
