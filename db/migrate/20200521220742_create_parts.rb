@@ -3,7 +3,7 @@ class CreateParts < ActiveRecord::Migration[6.0]
     create_table :parts do |p|
       p.string :name
       p.decimal :price
-      p.datetime :ordered
+      p.string :ordered
       p.integer :device_id
     end
   end

@@ -10,7 +10,7 @@ class UserController < ApplicationController
         else
             user = User.create(username: params[:username], password: params[:password])
             session[:user_id] = user.id
-            redirect "/user/#{user.id}"
+            redirect "/user/dashboard"
         end
     end
 

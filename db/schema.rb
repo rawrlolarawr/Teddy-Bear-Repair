@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2020_05_21_220742) do
   create_table "parts", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
-    t.datetime "ordered"
+    t.string "ordered"
     t.integer "device_id"
   end
 
