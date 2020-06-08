@@ -30,7 +30,7 @@
     <% if !@device.parts.empty? %>
         <h5>Parts</h5>
         <% @device.parts.each do |p| %>
-            <li><a href="parts/<%= p.id %>"><%= p.name %></a>
+            <li><a href="/part/<%= p.id %>"><%= p.name %></a>
         <% end %>
     <% end %>
 </ul>

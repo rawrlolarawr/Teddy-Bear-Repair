@@ -9,4 +9,5 @@ use LoginController
 use UserController
 use CustomerController
 use DeviceController
+use PartController
 run ApplicationController
