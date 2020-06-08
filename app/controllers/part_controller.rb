@@ -16,4 +16,20 @@ class PartController < ApplicationController
         end
         redirect "/part/#{@part.id}"
     end
+
+    get "/part/:id/delete" do
+        @part = Part.find_by_id(params[:id])
+        erb :'parts/delete'
+    end
+
+    delete "/part/:id/delete" do
+        @part = Part.find_by_id(params[:id])
+        @user = User.find_by_id(session[:user_id])
+
+        if @user.authenticate(params[:password])
+            @part.delete
+        end
+
+        redirect "/user/dashboard"
+    end
 end
