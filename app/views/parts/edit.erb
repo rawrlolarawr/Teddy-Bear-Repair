@@ -1,0 +1,24 @@
+<form method="POST" action="/part/<%= @part.id %>/edit">
+    <p>
+        <input type="hidden" name="_method" value="PATCH">
+    </p>
+
+    <p>
+        <label for="part_name">Name</label>
+        <input type="text" id="part_name" name="part[name]" value="<%= @part.name %>">
+    </p>
+
+    <p>
+        <label for="part_price">Price</label>
+        <input type="number" step="0.01" min="0" id="part_price" name="part[price]" value="<%= @part.price %>">
+    </p>
+
+    <p>
+        <label for="part_ordered">Date Ordered</label>
+        <input type="date" id="part_ordered" name="part[ordered]" value="<%= @part.ordered %>">
+    </p>
+
+    <p>
+        <input type="submit" value="Edit Part">
+    </p>
+</form>
