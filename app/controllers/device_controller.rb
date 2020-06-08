@@ -19,4 +19,20 @@ class DeviceController < ApplicationController
         end
         redirect "/device/#{@device.id}"
     end
+
+    get "/device/:id/delete" do
+        @device = Device.find_by_id(params[:id])
+        erb :'devices/delete'
+    end
+
+    delete "/device/:id/delete" do
+        @device = Device.find_by_id(params[:id])
+        @user = User.find_by_id(session[:user_id])
+
+        if @user.authenticate(params[:password])
+            @device.delete
+        end
+
+        redirect "/user/dashboard"
+    end
 end
