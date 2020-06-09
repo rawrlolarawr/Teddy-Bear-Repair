@@ -1,11 +1,13 @@
 class PartController < ApplicationController
     get "/part/:id" do
         @part = Part.find_by_id(params[:id])
+        authorize(@part.device.customer)
         erb :'parts/show'
     end
 
     get "/part/:id/edit" do
         @part = Part.find_by_id(params[:id])
+        authorize(@part.device.customer)
         erb :'parts/edit'
     end
 
@@ -19,6 +21,7 @@ class PartController < ApplicationController
 
     get "/part/:id/delete" do
         @part = Part.find_by_id(params[:id])
+        authorize(@part.device.customer)
         erb :'parts/delete'
     end
 

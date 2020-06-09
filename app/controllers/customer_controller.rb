@@ -1,11 +1,12 @@
 class CustomerController < ApplicationController
 
     get "/customer/new" do
+        authenticate
         erb :'customers/new'
     end
 
     post "/customer/new" do
-        customer = User.find_by_id(session[:user_id]).customers.build(params[:customer])
+        customer = current_user.customers.build(params[:customer])
         if params[:device]
             customer.devices.build(params[:device])
         end
@@ -15,11 +16,13 @@ class CustomerController < ApplicationController
 
     get "/customer/:id" do
         @customer = Customer.find_by_id(params[:id])
+        authorize(@customer)
         erb :'customers/show'
     end
 
     get "/customer/:id/edit" do
         @customer = Customer.find_by_id(params[:id])
+        authorize(@customer)
         erb :'customers/edit'
     end
 
@@ -40,6 +43,7 @@ class CustomerController < ApplicationController
 
     get "/customer/:id/delete" do
         @customer = Customer.find_by_id(params[:id])
+        authorize(@customer)
         erb :'customers/delete'
     end
     

@@ -1,11 +1,13 @@
 class DeviceController < ApplicationController
     get "/device/:id" do
         @device = Device.find_by_id(params[:id])
+        authorize(@device.customer)
         erb :'devices/show'
     end
 
     get "/device/:id/edit" do
         @device = Device.find_by_id(params[:id])
+        authorize(@device.customer)
         erb :'devices/edit'
     end
 
@@ -22,6 +24,7 @@ class DeviceController < ApplicationController
 
     get "/device/:id/delete" do
         @device = Device.find_by_id(params[:id])
+        authorize(@device.customer)
         erb :'devices/delete'
     end
 
