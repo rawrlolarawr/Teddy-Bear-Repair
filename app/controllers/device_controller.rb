@@ -27,7 +27,7 @@ class DeviceController < ApplicationController
 
     delete "/device/:id/delete" do
         @device = Device.find_by_id(params[:id])
-        @user = User.find_by_id(session[:user_id])
+        @user = current_user
 
         if @user.authenticate(params[:password])
             @device.delete

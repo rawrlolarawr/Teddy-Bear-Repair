@@ -24,7 +24,7 @@ class PartController < ApplicationController
 
     delete "/part/:id/delete" do
         @part = Part.find_by_id(params[:id])
-        @user = User.find_by_id(session[:user_id])
+        @user = current_user
 
         if @user.authenticate(params[:password])
             @part.delete

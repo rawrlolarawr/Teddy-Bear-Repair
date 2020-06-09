@@ -45,7 +45,7 @@ class CustomerController < ApplicationController
     
     delete "/customer/:id/delete" do
         @customer = Customer.find_by_id(params[:id])
-        @user = User.find_by_id(session[:user_id])
+        @user = current_user
         if @user.authenticate(params[:password]) && @user.customers.include?(@customer)
             @customer.delete
         end
