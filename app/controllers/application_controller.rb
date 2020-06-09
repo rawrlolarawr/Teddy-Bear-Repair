@@ -23,7 +23,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def authenticate
-      redirect '/login' if !logged_in
+      redirect '/login' if !logged_in?
     end
 
     def authorize(customer)
