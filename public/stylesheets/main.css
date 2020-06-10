@@ -55,8 +55,26 @@
     margin-bottom: 18px;
   }
 
-  ul {
+  div ul {
     margin-top: 1em;
+  }
+
+  nav {
+    background: #eee;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav li {
+    display: inline-block;
+
+  }
+
+  nav li a {
+    color: #333;
+    padding: 14px 16px;
+    text-decoration: none;
   }
 
   .main {
