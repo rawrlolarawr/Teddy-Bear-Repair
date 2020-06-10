@@ -1,8 +1,16 @@
-<h4><%= @customer.name %></h4>
+<h3><%= @customer.name %></h3>
 
 <ul>
-    <% @customer.devices.each do |d| %>
+    <h4>Devices</h4>
+    <% @customer.devices.reverse.each do |d| %>
         <li><a href="/device/<%= d.id %>"><%= d.make %> <%= d.model %></a>
+    <% end %>
+</ul>
+
+<ul>
+    <h4>Parts Ordered</h4>
+    <% @customer.parts.reverse.each do |p| %>
+        <li> <a href="/part/<%= p.id %>"><%= p.name %></a> - <%= p.device.customer.name %>'s <%= p.device.make %> <%= p.device.model %>
     <% end %>
 </ul>
 
