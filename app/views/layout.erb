@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
+    <nav>
+      <% if logged_in? %>
+        <a href="/user/dashboard">Dashboard</a>
+        <a href="/user/dashboard/edit">Edit User</a>
+        <a href="/logout">Logout</a>
+      <% else %>
+        <a href="/login">Login</a>
+      <% end %>
+    </nav>
     <div class="wrapper">
 
         <%= yield %>
