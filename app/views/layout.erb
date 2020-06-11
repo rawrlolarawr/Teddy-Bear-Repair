@@ -9,16 +9,16 @@
   </head>
   <body>
     <nav>
-      <ul>
+    <div class="navbar">
         <% if logged_in? %>
           <img src="/images/favicon.ico" alt="Teddy Bear Repair Logo">
-          <li><a href="/user/dashboard">Dashboard</a></li>
-          <li><a href="/user/dashboard/edit">Edit User</a></li>
-          <li><a href="/logout">Logout</a></li>
+          <a href="/user/dashboard">Dashboard</a>
+          <a href="/user/dashboard/edit">Edit User</a>
+          <a href="/logout">Logout</a>
         <% else %>
-          <li><a href="/login">Login</a></li>
+          <a href="/login">Login</a>
         <% end %>
-      </ul>
+      </div>
     </nav>
     <div class="wrapper">
 

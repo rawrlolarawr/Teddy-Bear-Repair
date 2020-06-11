@@ -64,20 +64,23 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
+    overflow: none;
+  }
+  
+  nav div.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 66%;
   }
 
-  nav li {
-    display: inline-block;
-
-  }
-
-  nav li a {
+  nav a {
     color: #333;
     padding: 14px 16px;
     text-decoration: none;
   }
 
-  nav li a:hover {
+  nav a:hover {
     background-color: #333;
     color: #eee;
   }
