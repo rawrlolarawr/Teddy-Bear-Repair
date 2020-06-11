@@ -1,5 +1,8 @@
 class LoginController< ApplicationController
     get "/login" do
+        if logged_in?
+            redirect "/user/dashboard"
+        end
         erb :login
     end
 
