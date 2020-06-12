@@ -10,7 +10,7 @@
 <ul>
     <h4>Parts Ordered</h4>
     <% @customer.parts.reverse.each do |p| %>
-        <li> <a href="/part/<%= p.id %>"><%= p.name %></a> - <%= p.device.customer.name %>'s <%= p.device.make %> <%= p.device.model %>
+        <li> <a href="/part/<%= p.id %>"><%= p.name %></a> - <%= p.device.make %> <%= p.device.model %>
     <% end %>
 </ul>
 
