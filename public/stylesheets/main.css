@@ -68,14 +68,13 @@
   
   nav div.navbar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-right: 66%;
   }
 
   nav a {
+    display: block;
     color: #333;
-    padding: 14px 16px;
+    padding: 16px;
     text-decoration: none;
   }
 
