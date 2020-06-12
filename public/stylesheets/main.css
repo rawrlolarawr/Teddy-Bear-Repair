@@ -20,7 +20,7 @@
   }
 
   .wrapper {
-    background: #fff;
+    background: #eee;
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
     box-shadow: 0 0 10px rgba(0,0,0,.3);
@@ -122,19 +122,12 @@
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
-    width: auto;
+    width: 90%;
   }
 
-  .content, .sidebar {
+  .content {
     float: none;
     width: 100%;
-  }
-
-  .sidebar {
-    background: transparent;
-    border: none;
-    border-top: 2px solid #ccc;
-    padding: 0;
   }
 
   h1 {
