@@ -4,6 +4,10 @@ The CMS uses sqlite3 and sinatra to dynamically display the customers, devices, 
 
 ## Installation
 
+Install using a combination of Apache Server & Passenger Gem, Nginx Server and Unicorn Gem, or deploy to a Heroku server
+
+https://www.digitalocean.com/community/tutorials/how-to-deploy-sinatra-based-ruby-web-applications-on-ubuntu-13
+
 ## Usage
 
 Log in or Register to add customers and devices to be repaired
