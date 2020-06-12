@@ -9,5 +9,10 @@ configure :development do
   set :database, {adapter: "postgresql", encoding: 'unicode', database: "db/app_data", pool: 2}
 end
 
+configure :production do
+  set :database, {adapter: "postgresql", encoding: 'unicode', database: "db/app_data", pool: 2, username: "jprdisohcwaqzv", password: ENV["DB_PASS"]}
+end
+
+
 require './app/controllers/application_controller'
 require_all 'app'
