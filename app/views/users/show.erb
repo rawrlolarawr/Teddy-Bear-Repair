@@ -1,19 +1,23 @@
 <h1><%= @user.username %></h1>
 
-<ul>
-    <h4>Customers</h4>
-    <% @user.customers.each do |c| %>
-        <li><a href="/customer/<%= c.id %>"><%= c.name %></a>
-    <% end %>
-</ul>
+<% if !@user.customers.empty? %>
+    <ul>
+        <h4>Customers</h4>
+        <% @user.customers.each do |c| %>
+            <li><a href="/customer/<%= c.id %>"><%= c.name %></a>
+        <% end %>
+    </ul>
+<% end %>
 
 <button>
     <a href="/customer/new" class="button">Add Customer</a>
 </button>
 
-<ul>
-    <h4>Devices</h4>
-    <% @user.devices.reverse.each do |d| %>
-        <li><a href="/device/<%= d.id %>"><%= d.customer.name %>'s <%= d.make %> <%= d.model %></a>
-    <% end %>
-</ul>
+<% if !@user.devices.empty? %>
+    <ul>
+        <h4>Devices</h4>
+        <% @user.devices.reverse.each do |d| %>
+            <li><a href="/device/<%= d.id %>"><%= d.customer.name %>'s <%= d.make %> <%= d.model %></a>
+        <% end %>
+    </ul>
+<% end %>
