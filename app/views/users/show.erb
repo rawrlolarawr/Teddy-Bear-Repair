@@ -17,7 +17,7 @@
     <ul>
         <h4>Open Devices</h4>
         <% @user.devices.reverse.each do |d| %>
-            <% if d.completed.empty? %>
+            <% if d.completed %>
                 <li><a href="/device/<%= d.id %>"><%= d.customer.name %>'s <%= d.make %> <%= d.model %></a>
             <% end %>
         <% end %>
