@@ -28,10 +28,10 @@ class CustomerController < ApplicationController
 
     patch "/customer/:id/edit" do
         @customer = Customer.find_by_id(params[:id])
-        if !params[:customer][:name].empty? || @customer.name
+        if !params[:customer][:name].empty? || !@customer.name
             @customer.update(name: params[:customer][:name])
         end
-        if !params[:customer][:phone_number].empty? || @customer.phone_number
+        if !params[:customer][:phone_number].empty? || !@customer.phone_number
             @customer.update(phone_number: params[:customer][:phone_number])
         end
         if !params[:device][:make].empty? && !params[:device][:model].empty? && !params[:device][:issue].empty? && !params[:device][:received].empty?
