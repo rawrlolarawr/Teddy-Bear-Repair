@@ -10,7 +10,7 @@
 
     <p>
         <label for="part_price">Price</label>
-        <input type="number" step="0.01" min="0" id="part_price" name="part[price]" value="<%= @part.price %>">
+        <input type="number" step="0.01" min="0" id="part_price" name="part[price]" value="<%= @part.price %>" onchange="setTwoNumberDecimal(this)">
     </p>
 
     <p>
