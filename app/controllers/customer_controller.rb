@@ -7,7 +7,7 @@ class CustomerController < ApplicationController
 
     post "/customer/new" do
         customer = current_user.customers.build(params[:customer])
-        if params[:device]
+        if !params[:device][:make].empty? && !params[:device][:model].empty? && !params[:device][:issue].empty? && !params[:device][:received].empty?
             customer.devices.build(params[:device])
         end
         customer.save
